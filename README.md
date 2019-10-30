@@ -52,22 +52,25 @@ ___
      
  ![FireShot Capture 132 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67864989-d3aa6780-fb26-11e9-8e33-5b4e3a39085a.png)
 
+Alle Shouted Beiträge eines Users und ihrer Verfasser
+  
+      1.4.5. MATCH (p:User{name: "Peter Lustig"})-[:SHOUTED]-(t:Post)-[:WROTE]-(u:User) return p, t,u
 
 Alle verfassten Kommentare eines Users
 
-      1.4.5 MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment) return p, t
+      1.4.6. MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment) return p, t
      
      
 Alle verfassten Kommentare eines Users und die Beiträge dafür
 
-       1.4.6 MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post) return p, t, x
+       1.4.7. MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post) return p, t, x
        
 ![FireShot Capture 133 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67866115-b70f2f00-fb28-11e9-97f3-f89878f64894.png)
 
 
 Alle verfassten Kommentare eines Users, die dazugehörigen Beiträge und der Ersteller des Beitrags
 
-       1.4.7 MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post)-[:WROTE]-(z:User) return p,t,x,z
+       1.4.8. MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post)-[:WROTE]-(z:User) return p,t,x,z
 
 ![FireShot Capture 134 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67866114-b70f2f00-fb28-11e9-96b5-6653d31f7e41.png)
        
