@@ -56,6 +56,9 @@ Alle Shouted Beiträge eines Users und ihrer Verfasser
   
       1.4.5. MATCH (p:User{name: "Peter Lustig"})-[:SHOUTED]-(t:Post)-[:WROTE]-(u:User) return p, t,u
 
+![FireShot Capture 135 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67870902-d9587b00-fb2f-11e9-9012-685ef019a027.png)
+
+
 Alle verfassten Kommentare eines Users
 
       1.4.6. MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment) return p, t
@@ -73,4 +76,26 @@ Alle verfassten Kommentare eines Users, die dazugehörigen Beiträge und der Ers
        1.4.8. MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post)-[:WROTE]-(z:User) return p,t,x,z
 
 ![FireShot Capture 134 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67866114-b70f2f00-fb28-11e9-96b5-6653d31f7e41.png)
+
+
+Alle Freunde eines Users
+
+      MATCH (p:User{name: "Peter Lustig"})-[:FRIENDS]-(u:User) return u
+   
+Alle User denen Peter Lustig folgt und die ihm folgen
+   
+    MATCH (p:User{name: "Peter Lustig"})-[:FOLLOWS]-(u:User) return p,u
        
+Alle User denen Peter Lustig folgt
+
+      MATCH (p:User{name: "Peter Lustig"})-[:FOLLOWS]->(u:User) return u
+      
+Alle User welche Peter Lustig folgen
+
+      MATCH (p:User{name: "Peter Lustig"})<-[:FOLLOWS]-(u:User) return u
+
+
+Alle User die einem User folgen
+
+    MATCH (p:User)-[:FOLLOWS]-(u:User) return p,u
+
