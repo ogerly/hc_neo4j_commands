@@ -67,7 +67,7 @@ Alle verfassten Kommentare eines Users und die Beiträge dafür
 
 Alle verfassten Kommentare eines Users, die dazugehörigen Beiträge und der Ersteller des Beitrags
 
-        MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post)-[:WROTE]-(z:User) return p,t,x,z
+       1.4.7 MATCH (p:User{name: "Peter Lustig"})-[:WROTE]-(t:Comment)-[:COMMENTS]-(x:Post)-[:WROTE]-(z:User) return p,t,x,z
 
 ![FireShot Capture 134 - bolt___localhost_7687 - Neo4j Browser - localhost](https://user-images.githubusercontent.com/1324583/67866114-b70f2f00-fb28-11e9-96b5-6653d31f7e41.png)
        
