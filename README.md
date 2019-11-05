@@ -99,3 +99,37 @@ Alle User die einem User folgen
 
     MATCH (p:User)-[:FOLLOWS]-(u:User) return p,u
 
+
+
+# Beiträge
+
+Alle beiträge in alphabetischer Reinfolge [Aa - Zz]
+
+      MATCH (n:Post) RETURN n ORDER BY toLower(n.title) ASC
+      
+
+Alle beiträge in alphabetischer Reinfolge [Zz - Aa]
+
+      MATCH (n:Post) RETURN n ORDER BY toLower(n.title) DESC
+      
+      
+Geordnet nach neuste Beiträge zuerst [Datum absteigend]
+
+      MATCH (n:Post) RETURN n ORDER BY n.createdAt DESC
+      
+      
+Geordnet nach älteste Beiträge zuerst  [Datum aufsteigend]
+
+      MATCH (n:Post) RETURN n ORDER BY n.createdAt ASC
+
+Alle Beiträge mit ihren Kommentaren 
+
+      MATCH (p:Post)-[:COMMENTS]-(c:Comment) return p,c Order By c.createdAt
+      
+Geordnet nach neuster Kommentierter Beitrag [Datum absteigend]
+
+       MATCH (p:Post)-[:COMMENTS]-(c:Comment) return p,c Order By c.createdAt DESC 
+       
+Geordnet nach ältester Kommentierter Beitrag [Datum aufsteigend]
+
+       MATCH (p:Post)-[:COMMENTS]-(c:Comment) return p,c Order By c.createdAt ASC 
